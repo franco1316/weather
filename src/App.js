@@ -13,13 +13,21 @@ function App() {
     const apiKey = 'ab66cda0625cbf49ebc7931f2f93b588'
 
       axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`)
-      .then(res=>setWeather(res.data))
+      .then(res=>{
+        setWeather(res.data)
+        setTemp(res.data.main.temp)
+        setSpee(res.data.wind.speed)
+        setClouds(res.data.clouds.all)
+        
+      })
       .catch(e=>console.log(e))
   }
 
   useEffect( () => {
      navigator.geolocation.getCurrentPosition(success)
   }, [] )
+
+  console.log(weather)
 
 
 
@@ -33,6 +41,8 @@ function App() {
   let speed=weather.wind?.speed
   const [spee, setSpee] = useState(speed)
   const [systemSpeed, setSystemSpeed] = useState('m/s')
+  let cloud=weather.clouds?.all
+  const [clouds, setClouds]=useState(cloud)
 
   const roundDecimal=(decimal, nDecimal)=>{
     let base=Math.pow(10,nDecimal)
@@ -73,7 +83,7 @@ function App() {
     <div className="App">
       <div className='background'>
         <Card city={weather.name} country={weather.sys?.country} weather={weather.weather?.[0].description}
-        wind={spee} sWind={systemSpeed} clouds={weather.clouds?.all} pressure={weather.main?.pressure} sPressure={systemPressure}
+        wind={spee} sWind={systemSpeed} clouds={clouds} pressure={weather.main?.pressure} sPressure={systemPressure}
         temp={temp} sTemp={systemTemp} img1={weather.weather?.[0].icon}/>
 
           <button className='card size' onClick={changeSystem}>Convert to {system === 'Unit Default' ? ' Metric ' :
