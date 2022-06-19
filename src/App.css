@@ -1,17 +1,24 @@
-.App {
-  text-align: center;
-}
-
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+.App {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+}
+
 .background{
   background-color: rgba(64, 126, 219, 0.795);
+  width: 100%;
+  height: 100%;
   padding: 10rem;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .card{
@@ -22,22 +29,41 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 2rem;
   padding: 1rem;
-  width: 40%;
-  margin: auto;
+  width: 30vw;
   border-radius: 1rem;
+  margin: .25rem 0;
 }
 
 .weather{
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+}
+
+@media only screen and (max-width: 1200px){
+  .card{
+    width: 60vw;
+  }
+}
+
+@media only screen and (max-width: 400px){
+
+  .background{
+    padding: 2rem;
+  }
+
+  .card{
+    width: 80vw;
+  }
 }
 
 .column{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .container-weather-image{
@@ -48,7 +74,6 @@
 .weather-image{
   width: 100%;
   height: 100%;
-  background-color: transparent;
 }
 
 .row{

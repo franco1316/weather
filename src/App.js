@@ -18,6 +18,7 @@ function App() {
         setTemp(res.data.main.temp)
         setSpee(res.data.wind.speed)
         setClouds(res.data.clouds.all)
+        console.log(res.data);
         
       })
       .catch(e=>console.log(e))
@@ -85,9 +86,8 @@ function App() {
         <Card city={weather.name} country={weather.sys?.country} weather={weather.weather?.[0].description}
         wind={spee} sWind={systemSpeed} clouds={clouds} pressure={weather.main?.pressure} sPressure={systemPressure}
         temp={temp} sTemp={systemTemp} img1={weather.weather?.[0].icon}/>
-
-          <button className='card size' onClick={changeSystem}>Convert to {system === 'Unit Default' ? ' Metric ' :
-          system === 'Metric' ? 'Imperial' : system === ' Imperial ' ? ' Unit Default ' : ' Unit Default '}</button>
+        <button className='card size' onClick={changeSystem}>Convert to {system === 'Unit Default' ? ' Metric ' :
+        system === 'Metric' ? 'Imperial' : system === ' Imperial ' ? ' International System ' : ' International System '}</button>
       </div>
     </div>
   );
