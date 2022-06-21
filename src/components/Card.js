@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/card.css';
 
 const Card = ({city, country, weather, wind, sWind, clouds, pressure, sPressure, temp, sTemp, img1}) => {
     return (
