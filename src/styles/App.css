@@ -1,3 +1,16 @@
+:root{
+  --color-day-sky: rgb(64, 126, 219);
+  --color-day-cloud: rgb(242, 242, 242);
+
+  /*position-clouds*/
+  --first-x-position: 0;
+  --first-y-position: 0;
+
+  --last-x-position: 90vw;
+  --last-y-position: 90vh;
+  /*position-clouds*/
+}
+
 *{
   margin: 0;
   padding: 0;
@@ -11,7 +24,7 @@
 }
 
 .background{
-  background-color: rgba(64, 126, 219, 0.795);
+  background-color: var(--color-day-sky);
   width: 100%;
   height: 100%;
   padding: 10rem;
@@ -22,11 +35,15 @@
   gap: .5rem;
 }
 
-
-
 @media only screen and (max-width: 400px){
   .background{
     padding: 2rem;
   }
+}
+
+.container-clouds{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
 }
 

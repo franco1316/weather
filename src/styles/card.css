@@ -10,6 +10,8 @@
     width: 30vw;
     border-radius: 1rem;
     border: none;
+    position: relative;
+    z-index: 2;
   }
   
   .weather{
