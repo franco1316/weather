@@ -12,6 +12,17 @@
     border: none;
     position: relative;
     z-index: 2;
+    transition: filter .2s ease;
+    filter: opacity(0.9)
+  }
+
+  .card:hover{
+    transition: filter .2s ease;
+    filter: opacity(1)
+  }
+
+  .card:active{
+    z-index: 1;
   }
   
   .weather{

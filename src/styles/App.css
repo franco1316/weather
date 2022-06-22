@@ -35,15 +35,32 @@
   gap: .5rem;
 }
 
+.container-clouds{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
 @media only screen and (max-width: 400px){
   .background{
     padding: 2rem;
   }
 }
 
-.container-clouds{
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
+.button{
+  transform: scaleX(100%) scaleY(100%);
+  transition: transform .2s ease;
+  filter: opacity(0.9)
+}
+
+.button:hover{
+  transform: scaleX(102%) scaleY(102%);
+  transition: transform .2s ease;
+  filter: blur(0.001px) opacity(1);
+  color: purple;
+}
+
+.button:active{
+  transform: skewX(15deg);
 }
 

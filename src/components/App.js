@@ -57,7 +57,6 @@ function App() {
 
       //international --> metric
       temperature -= 273.15
-      speed = speed
       
       setSystem('Metric')
       setPressureSystem('hpa')
@@ -79,8 +78,6 @@ function App() {
     else{
 
       //international --> international
-      temperature = temperature
-      speed = speed
 
       setSystem('Unit Default')
       setTemperatureSystem('K')
@@ -118,7 +115,7 @@ function App() {
           image = {weather.weather?.[0].icon}
         />
 
-        <button className = 'card size' onClick = {() => changeSystem()}>
+        <button className = 'card size button' onClick = {() => changeSystem()}>
           Convert to {
             system === 'Unit Default' ? ' Metric ' :
             system === 'Metric' ? 'Imperial' : 
