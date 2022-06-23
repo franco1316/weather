@@ -1,14 +1,14 @@
 .cloud{
     width: 120px;
     height: 120px;
-    position: absolute;
+    position: relative;
     transform: translateX(0) translateY(0vh);
     z-index: 1;
 }
 
 .cloud::before{
     content: '';
-    position: relative;
+    position: absolute;
     background-color: var(--color-day-sky);
     z-index: 1;
     top: 28%;
@@ -18,9 +18,17 @@
     border-radius: 50%;
 }
 
+.bg-day::before{
+    background-color: var(--color-day-sky);
+}
+
+.bg-night::before{
+    background-color: var(--color-night-sky);
+}
+
 .cloud::after{
     content: '';
-    position: relative;
+    position: absolute;
     background-color: var(--color-day-cloud);
     z-index: 1;
     top: 34%;
@@ -28,7 +36,7 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    box-shadow: 10px 15px var(--color-day-cloud);
+    box-shadow: 14px 11px var(--color-day-cloud);
 }
 
 .cloud>img{

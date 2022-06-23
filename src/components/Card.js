@@ -31,9 +31,9 @@ const Card = ({
             </div>
             <div className = 'column'>
                 <h3>"{weather}"</h3>
-                <p className = 'row'>Wind speed: <p className = 'black'>{windSpeed} {windSpeedSystem}</p></p>
-                <p className = 'row'>Clouds: <p className = 'black'>{clouds}%</p></p>
-                <p className = 'row'>Pressure: <p className = 'black'>{pressure} {pressureSystem}</p></p>
+                <p className = 'row'>Wind speed: <label className = 'black'>{windSpeed} {windSpeedSystem}</label></p>
+                <p className = 'row'>Clouds: <label className = 'black'>{clouds}%</label></p>
+                <p className = 'row'>Pressure: <label className = 'black'>{pressure} {pressureSystem}</label></p>
             </div>
           </section>
         </div>

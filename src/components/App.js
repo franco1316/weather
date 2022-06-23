@@ -24,10 +24,18 @@ function App() {
       })
       .catch(e=>console.log(e))
   }
+  
+  const [skyTime, setSkyTime] = useState('day')
+  let currentTime = new Date()
+  let currentHour = currentTime.toLocaleTimeString().split(':')[0]
 
-  useEffect( () => {
-     navigator.geolocation.getCurrentPosition(success)
-  }, [] )
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(success)
+  }, [])
+
+  useEffect(() => {
+    (currentHour > 5 && currentHour < 18) ? setSkyTime('day') : setSkyTime('night')
+  }, [currentHour])
 
 
   const [system, setSystem] = useState('Unit Default')
@@ -90,15 +98,201 @@ function App() {
     setTemp(temperature)
   }
 
+  let bgStyleColor = skyTime === 'day' ? 'bg-day' : 'bg-night'
+
+  function rollADie(){
+    let random = Math.floor(Math.random() * (100 - cloudy)) 
+    if(random === 1){
+      random = 0
+    }
+    if(random >= cloudy){
+      random = 1
+    }
+
+    return random
+  }
  
   return (
     <div className = "App">
-      <div className = 'background'>
+      <div className = {`background ${bgStyleColor}`}>
         { 
           (weather.weather?.[0].description !== 'clear sky' || cloudy !== 0) &&
-          <div className="container-clouds">
-            <Cloud cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}/>
-            <Cloud cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}/>
+          <div className = "container-clouds">
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
+            <Cloud 
+              bgStyle = {bgStyleColor}
+              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
+            />
           </div>
         }
         <Card 

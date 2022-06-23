@@ -2,13 +2,7 @@
   --color-day-sky: rgb(64, 126, 219);
   --color-day-cloud: rgb(242, 242, 242);
 
-  /*position-clouds*/
-  --first-x-position: 0;
-  --first-y-position: 0;
-
-  --last-x-position: 90vw;
-  --last-y-position: 90vh;
-  /*position-clouds*/
+  --color-night-sky: rgb(14, 29, 51);
 }
 
 *{
@@ -35,10 +29,31 @@
   gap: .5rem;
 }
 
+.bg-day{
+  background-color: var(--color-day-sky);
+}
+
+.bg-night{
+  background-color: var(--color-night-sky);
+}
+
 .container-clouds{
+  color: transparent;
   position: absolute;
   width: 100vw;
   height: 100vh;
+  display: grid;
+  gap: 0rem 5rem;
+  grid-template-columns: repeat(auto-fill, minmax(2rem, 8rem));
+  grid-template-rows: repeat(5, 1fr);
+}
+
+.opacity0{
+  opacity: 0;
+}
+
+.opacity1{
+  opacity: 1;
 }
 
 @media only screen and (max-width: 400px){
