@@ -3,6 +3,7 @@
   --color-day-cloud: rgb(242, 242, 242);
 
   --color-night-sky: rgb(14, 29, 51);
+  --color-night-cloud: rgb(242, 242, 242);
 }
 
 *{
@@ -46,6 +47,7 @@
   gap: 0rem 5rem;
   grid-template-columns: repeat(auto-fill, minmax(2rem, 8rem));
   grid-template-rows: repeat(5, 1fr);
+  overflow: hidden;
 }
 
 .opacity0{

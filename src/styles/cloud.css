@@ -2,8 +2,82 @@
     width: 120px;
     height: 120px;
     position: relative;
-    transform: translateX(0) translateY(0vh);
     z-index: 1;
+}
+
+.animation-cloud-1{
+    animation: cloudMove1 100s ease alternate infinite;
+}
+
+@keyframes cloudMove1 {
+    0%{
+        transform: translateX(-30px) translateY(-10px); /* x 0 50 y -10 10 */
+    }
+    20%{
+        transform: translateX(-20) translateY(5px);
+    }
+    40%{
+        transform: translateX(20px) translateY(10px);
+    }
+    60%{
+        transform: translateX(30px) translateY(10px);
+    }
+    80%{
+        transform: translateX(20px) translateY(5px);
+    }
+    100%{
+        transform: translateX(-20) translateY(0);
+    }
+}
+
+.animation-cloud-2{
+    animation: cloudMove2 120s ease alternate infinite;
+}
+
+@keyframes cloudMove2 {
+    0%{
+        transform: translateX(20px) translateY(10px); /* x 0 50 y -10 10 */
+    }
+    20%{
+        transform: translateX(-5px) translateY(15px);
+    }
+    40%{
+        transform: translateX(5px) translateY(10px);
+    }
+    60%{
+        transform: translateX(-20px) translateY(10px);
+    }
+    80%{
+        transform: translateX(20px) translateY(-5px);
+    }
+    100%{
+        transform: translateX(20px) translateY(0);
+    }
+}
+
+.animation-cloud-3{
+    animation: cloudMove3 100s ease alternate infinite;
+}
+
+@keyframes cloudMove3 {
+    0%{
+        transform: translateX(20px) translateY(-10px); 
+    }
+    20%{
+        transform: translateX(30px) translateY(-10px);
+    }
+    40%{
+        transform: translateX(20px) translateY(10px);
+    }
+    60%{
+        transform: translateX(20px) translateY(10px);
+    }
+    80%{
+        transform: translateX(20px) translateY(15px);
+    }
+    100%{
+        transform: translateX(-10px) translateY(0);
+    }
 }
 
 .cloud::before{
@@ -11,11 +85,12 @@
     position: absolute;
     background-color: var(--color-day-sky);
     z-index: 1;
-    top: 28%;
-    left: 49%;
-    width: 42px;
-    height: 42px;
+    top: 15%;
+    left: 47%;
+    width: 57px;
+    height: 57px;
     border-radius: 50%;
+    box-shadow: -2px -12px var(--color-day-sky);
 }
 
 .bg-day::before{
@@ -37,6 +112,14 @@
     height: 30px;
     border-radius: 50%;
     box-shadow: 14px 11px var(--color-day-cloud);
+}
+
+.bg-day::after{
+    background-color: var(--color-day-cloud);
+}
+
+.bg-day::after{
+    background-color: var(--color-night-cloud);
 }
 
 .cloud>img{
