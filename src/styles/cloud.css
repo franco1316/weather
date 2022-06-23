@@ -6,49 +6,49 @@
 }
 
 .animation-cloud-1{
-    animation: cloudMove1 100s ease alternate infinite;
+    animation: cloudMove1 450s linear alternate infinite;
 }
 
 @keyframes cloudMove1 {
     0%{
-        transform: translateX(-30px) translateY(-10px); /* x 0 50 y -10 10 */
+        transform: translateX(-120px) translateY(-10px); /* x 0 50 y -10 10 */
     }
     20%{
-        transform: translateX(-20) translateY(5px);
+        transform: translateX(0) translateY(5px);
     }
     40%{
-        transform: translateX(20px) translateY(10px);
+        transform: translateX(100px) translateY(10px);
     }
     60%{
-        transform: translateX(30px) translateY(10px);
+        transform: translateX(300px) translateY(10px);
     }
     80%{
-        transform: translateX(20px) translateY(5px);
+        transform: translateX(100px) translateY(5px);
     }
     100%{
-        transform: translateX(-20) translateY(0);
+        transform: translateX(0) translateY(0);
     }
 }
 
 .animation-cloud-2{
-    animation: cloudMove2 120s ease alternate infinite;
+    animation: cloudMove2 400s ease alternate infinite;
 }
 
 @keyframes cloudMove2 {
     0%{
-        transform: translateX(20px) translateY(10px); /* x 0 50 y -10 10 */
+        transform: translateX(300px) translateY(10px); 
     }
     20%{
-        transform: translateX(-5px) translateY(15px);
+        transform: translateX(500px) translateY(15px);
     }
     40%{
-        transform: translateX(5px) translateY(10px);
+        transform: translateX(50px) translateY(10px);
     }
     60%{
-        transform: translateX(-20px) translateY(10px);
+        transform: translateX(-50px) translateY(10px);
     }
     80%{
-        transform: translateX(20px) translateY(-5px);
+        transform: translateX(-200px) translateY(-5px);
     }
     100%{
         transform: translateX(20px) translateY(0);
@@ -56,15 +56,15 @@
 }
 
 .animation-cloud-3{
-    animation: cloudMove3 100s ease alternate infinite;
+    animation: cloudMove3 115s ease alternate infinite;
 }
 
 @keyframes cloudMove3 {
     0%{
-        transform: translateX(20px) translateY(-10px); 
+        transform: translateX(40px) translateY(-20px); 
     }
     20%{
-        transform: translateX(30px) translateY(-10px);
+        transform: translateX(50px) translateY(-10px);
     }
     40%{
         transform: translateX(20px) translateY(10px);
@@ -73,10 +73,10 @@
         transform: translateX(20px) translateY(10px);
     }
     80%{
-        transform: translateX(20px) translateY(15px);
+        transform: translateX(-30px) translateY(25px);
     }
     100%{
-        transform: translateX(-10px) translateY(0);
+        transform: translateX(10px) translateY(0);
     }
 }
 
@@ -111,7 +111,7 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    box-shadow: 14px 11px var(--color-day-cloud);
+    box-shadow: 16px 15px var(--color-day-cloud);
 }
 
 .bg-day::after{

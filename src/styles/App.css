@@ -30,13 +30,13 @@
   gap: .5rem;
 }
 
-.bg-day{
+/* .bg-day{
   background-color: var(--color-day-sky);
 }
 
 .bg-night{
   background-color: var(--color-night-sky);
-}
+} */
 
 .container-clouds{
   color: transparent;
@@ -67,13 +67,15 @@
 .button{
   transform: scaleX(100%) scaleY(100%);
   transition: transform .2s ease;
-  filter: opacity(0.9)
+  filter: opacity(1);
+  position: relative;
+  z-index: 7;
 }
 
 .button:hover{
   transform: scaleX(102%) scaleY(102%);
   transition: transform .2s ease;
-  filter: blur(0.001px) opacity(1);
+  filter: blur(0.001px) opacity(.9);
   color: purple;
 }
 

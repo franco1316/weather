@@ -11,7 +11,7 @@
     border-radius: 1rem;
     border: none;
     position: relative;
-    z-index: 2;
+    z-index: 7;
     transition: filter .2s ease;
     filter: opacity(1)
   }
