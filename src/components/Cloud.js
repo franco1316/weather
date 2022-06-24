@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from 'react';
-
 import '../styles/cloud.css';
 import littleCloud from '../assets/little-cloud.png'
 import midCloud from '../assets/cloud.png'
