@@ -30,13 +30,13 @@
   gap: .5rem;
 }
 
-/* .bg-day{
+.bg-day{
   background-color: var(--color-day-sky);
 }
 
 .bg-night{
   background-color: var(--color-night-sky);
-} */
+}
 
 .container-clouds{
   color: transparent;

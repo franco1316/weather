@@ -3,27 +3,28 @@
     height: 120px;
     position: relative;
     z-index: 1;
+    background-color: transparent;
 }
 
 .animation-cloud-1{
-    animation: cloudMove1 450s linear alternate infinite;
+    animation: cloudMove1 280s linear alternate infinite;
 }
 
 @keyframes cloudMove1 {
     0%{
-        transform: translateX(-120px) translateY(-10px); /* x 0 50 y -10 10 */
+        transform: translateX(0px) translateY(-10px); /* x 0 50 y -10 10 */
     }
     20%{
         transform: translateX(0) translateY(5px);
     }
     40%{
-        transform: translateX(100px) translateY(10px);
+        transform: translateX(50px) translateY(10px);
     }
     60%{
-        transform: translateX(300px) translateY(10px);
+        transform: translateX(70px) translateY(10px);
     }
     80%{
-        transform: translateX(100px) translateY(5px);
+        transform: translateX(40px) translateY(5px);
     }
     100%{
         transform: translateX(0) translateY(0);
@@ -31,24 +32,24 @@
 }
 
 .animation-cloud-2{
-    animation: cloudMove2 400s ease alternate infinite;
+    animation: cloudMove2 250s ease alternate infinite;
 }
 
 @keyframes cloudMove2 {
     0%{
-        transform: translateX(300px) translateY(10px); 
+        transform: translateX(35px) translateY(10px); 
     }
     20%{
-        transform: translateX(500px) translateY(15px);
+        transform: translateX(40px) translateY(15px);
     }
     40%{
         transform: translateX(50px) translateY(10px);
     }
     60%{
-        transform: translateX(-50px) translateY(10px);
+        transform: translateX(0px) translateY(10px);
     }
     80%{
-        transform: translateX(-200px) translateY(-5px);
+        transform: translateX(20px) translateY(-5px);
     }
     100%{
         transform: translateX(20px) translateY(0);
@@ -73,7 +74,7 @@
         transform: translateX(20px) translateY(10px);
     }
     80%{
-        transform: translateX(-30px) translateY(25px);
+        transform: translateX(0) translateY(25px);
     }
     100%{
         transform: translateX(10px) translateY(0);

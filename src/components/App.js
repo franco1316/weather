@@ -16,13 +16,13 @@ function App() {
     const apiKey = 'ab66cda0625cbf49ebc7931f2f93b588'
 
       axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`)
-      .then(res=>{
+      .then(res => {
         setWeather(res.data)
         setTemp(res.data.main.temp)
         setWindSpeed(res.data.wind.speed)
         setCloudy(res.data.clouds.all)
       })
-      .catch(e=>console.log(e))
+      .catch(e => console.log(e))
   }
   
   const [skyTime, setSkyTime] = useState('day')
@@ -98,381 +98,26 @@ function App() {
     setTemp(temperature)
   }
 
-  let bgStyleColor = skyTime === 'day' ? 'bg-day' : 'bg-night'
+  let clouds = []
 
-  function rollADie(){
-    let random = Math.floor(Math.random() * (100 - cloudy)) 
-    if(random === 1){
-      random = 0
-    }
-    if(random >= cloudy){
-      random = 1
-    }
-
-    return random
-  }
-
-  function rollAPyramidDie(){
-    let random = Math.floor(Math.random() * 3) + 1
-    return random
+  for(let i = 0; i < 35; i++){
+    clouds[i] = {id: i}
   }
  
   return (
     <div className = "App">
-      <div className = {`background ${bgStyleColor}`}>
+      <div className = {`background ${skyTime === 'day' ? 'bg-day' : 'bg-night'}`}>
         { 
           (weather.weather?.[0].description !== 'clear sky' || cloudy !== 0) &&
           <div className = "container-clouds">
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
-            <Cloud 
-              bgStyle = {bgStyleColor}
-              cloudImg = {`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
-              className = {`${rollADie() === 1 ? 'opacity0' : 'opacity1'}`}
-              cloudAnimation = {`${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
-              }`}
-            />
+            {
+              clouds.map((cloud) =>
+                <Cloud 
+                  weather = {weather} 
+                  key = {cloud.id}
+                />
+              )
+            }
           </div>
         }
         <Card 
