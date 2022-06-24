@@ -47,8 +47,7 @@
   width: 100vw;
   height: 100vh;
   display: grid;
-  gap: 0rem 5rem;
-  grid-template-columns: repeat(auto-fill, minmax(2rem, 8rem));
+  grid-template-columns: repeat(auto-fill, minmax(2rem, 5rem));
   grid-template-rows: repeat(5, 1fr);
   overflow: hidden;
 }

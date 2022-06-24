@@ -8,14 +8,6 @@ import transparentImage from '../assets/transparent.jpg'
 
 const Cloud = ({weather}) => {
 
-    const [skyTime, setSkyTime] = useState('day')
-    let currentTime = new Date()
-    let currentHour = currentTime.toLocaleTimeString().split(':')[0]
-  
-    useEffect(() => {
-      (currentHour > 5 && currentHour < 18) ? setSkyTime('day') : setSkyTime('night')
-    }, [currentHour])
-
     let cloud = weather.clouds?.all
 
     function rollADie(){
