@@ -100,7 +100,7 @@ function App() {
 
   let clouds = []
 
-  for(let i = 0; i < 35; i++){
+  for(let i = 0; i < 30; i++){
     clouds[i] = {id: i}
   }
  

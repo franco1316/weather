@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 import '../styles/cloud.css';
+import littleCloud from '../assets/little-cloud.png'
+import midCloud from '../assets/cloud.png'
+import bigCloud from '../assets/big-cloud.png'
+import transparentImage from '../assets/transparent.jpg'
 
 const Cloud = ({weather}) => {
 
@@ -12,32 +16,35 @@ const Cloud = ({weather}) => {
       (currentHour > 5 && currentHour < 18) ? setSkyTime('day') : setSkyTime('night')
     }, [currentHour])
 
-    let bgStyleColor = skyTime === 'day' ? 'bg-day' : 'bg-night'
-
     let cloud = weather.clouds?.all
-
-    const cloudImg = `http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`
 
     function rollADie(){
         let random = Math.floor(Math.random() * 100) 
         random <= cloud ? random = 0 : random = 1
+        random = 0
         return random
     }
     
     const rollAPyramidDie = () =>  Math.floor(Math.random() * 3) + 1
+    const numberCloud = rollAPyramidDie()
+
+    const myClouds = [littleCloud, midCloud, bigCloud]
 
     return (
         <div className = {
             `cloud 
-            ${bgStyleColor} 
-            ${rollADie() === 1 ? 'opacity0' : 'opacity1'}
+            ${rollADie() === 1 ? 'opacity-0' : 'opacity-1'}
             ${
-                rollAPyramidDie() === 1 ? 'animation-cloud-1' : 
-                rollAPyramidDie() === 2 ? 'animation-cloud-2' :
-                rollAPyramidDie() === 3 ? 'animation-cloud-3' : ''
+                numberCloud === 1 ? 'animation-cloud-1' : 
+                numberCloud === 2 ? 'animation-cloud-2' :
+                numberCloud === 3 ? 'animation-cloud-3' : ''
             }`
         }>
-            <img src = {cloudImg} alt = "" />
+            <img 
+                src = {myClouds[numberCloud]?`${myClouds[numberCloud]}`:`${transparentImage}`} 
+                alt = ""
+                className={myClouds[numberCloud]?'':'opacity-0'}
+             />
         </div>
     );
 };

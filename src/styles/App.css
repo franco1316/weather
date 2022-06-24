@@ -1,8 +1,8 @@
 :root{
-  --color-day-sky: rgb(64, 126, 219);
+  --color-day-sky: #1a395c, #137fd8;
   --color-day-cloud: rgb(242, 242, 242);
 
-  --color-night-sky: rgb(14, 29, 51);
+  --color-night-sky: #07101c, #1a395c;
   --color-night-cloud: rgb(242, 242, 242);
 }
 
@@ -19,7 +19,6 @@
 }
 
 .background{
-  background-color: var(--color-day-sky);
   width: 100%;
   height: 100%;
   padding: 10rem;
@@ -31,11 +30,15 @@
 }
 
 .bg-day{
-  background-color: var(--color-day-sky);
+  background-color: linear-gradient(var(--color-day-sky));
+  background: -moz-linear-gradient(var(--color-day-sky));
+  background: -webkit-linear-gradient(var(--color-day-sky));
 }
 
 .bg-night{
-  background-color: var(--color-night-sky);
+  background-color: linear-gradient(var(--color-night-sky));
+  background: -moz-linear-gradient(var(--color-night-sky));
+  background: -webkit-linear-gradient(var(--color-night-sky));
 }
 
 .container-clouds{
