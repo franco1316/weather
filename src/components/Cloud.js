@@ -19,21 +19,12 @@ const Cloud = ({weather}) => {
     const cloudImg = `http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`
 
     function rollADie(){
-        let random = Math.floor(Math.random() * (100 - cloud)) 
-        if(random === 1){
-          random = 0
-        }
-        if(random >= cloud){
-          random = 1
-        }
-    
+        let random = Math.floor(Math.random() * 100) 
+        random <= cloud ? random = 0 : random = 1
         return random
-      }
+    }
     
-      function rollAPyramidDie(){
-        let random = Math.floor(Math.random() * 3) + 1
-        return random
-      }
+    const rollAPyramidDie = () =>  Math.floor(Math.random() * 3) + 1
 
     return (
         <div className = {
