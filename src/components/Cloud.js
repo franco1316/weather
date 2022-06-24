@@ -21,7 +21,6 @@ const Cloud = ({weather}) => {
     function rollADie(){
         let random = Math.floor(Math.random() * 100) 
         random <= cloud ? random = 0 : random = 1
-        random = 0
         return random
     }
     
