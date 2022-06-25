@@ -1,6 +1,6 @@
 :root{
   --color-day-sky: #1a395c, #137fd8;
-  --color-night-sky: to bottom, #030315, #060c3a;
+  --color-night-sky: #060c3a, #030315 ;
 
   --color-shadow-day: rgba(200, 200, 200, .75);
   --color-shadow-night: rgba(50, 50, 50, .75);
