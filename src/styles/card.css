@@ -1,24 +1,44 @@
+:root{
+  --bg-color-card: rgb(173, 190, 207);
+}
+
 .card{
-    background-color: rgb(173, 190, 207);
-    color: rgb(173, 21, 173);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 1rem;
-    width: 30vw;
-    border-radius: 1rem;
-    border: none;
-    position: relative;
-    z-index: 7;
-    transition: filter .2s ease;
-    filter: opacity(1)
-  }
+  background-color: var(--bg-color-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem;
+  padding-bottom: 2rem;
+  width: 30vw;
+  border-radius: 1rem;
+  border: none;
+  position: relative;
+  z-index: 7;
+  transition: filter .2s ease;
+  filter: opacity(1);
+}
+
+.card-day{
+  box-shadow: 0 200px 92px -97px var(--color-shadow-day);
+  color: var(--font-color-default-day);
+}
+
+.card-night{
+  box-shadow: 0 200px 92px -97px var(--color-shadow-night);
+  filter: brightness(0.6);
+  color: var(--font-color-default-night);
+}
 
   .card:hover{
     transition: filter .2s ease;
     filter: opacity(0.973)
+  }
+
+  .card-night:hover{
+    transition: filter .2s ease;
+    filter: opacity(0.973) brightness(0.8);
   }
 
   .card:active{
@@ -53,12 +73,12 @@
   
   .container-weather-image{
     width: 10rem;
-    height: 10rem;
+    height: 8rem;
     background-color: transparent;
   }
   .weather-image{
     width: 100%;
-    height: 100%;
+    height: 120%;
   }
   
   .row{
@@ -66,9 +86,16 @@
   }
   
   
-  .black{
-    color: black;
+  .space{
     text-indent: 1rem;
+  }
+
+  .font-color-day{
+    color: var(--font-color-day);
+  }
+
+  .font-color-night{
+    color: var(--font-color-night);
   }
   
   .temperature{

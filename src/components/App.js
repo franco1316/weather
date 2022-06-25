@@ -100,7 +100,7 @@ function App() {
 
   let clouds = []
 
-  for(let i = 0; i < 40; i++){
+  for(let i = 0; i < 70; i++){
     clouds[i] = {id: i}
   }
  
@@ -113,6 +113,7 @@ function App() {
             {
               clouds.map((cloud) =>
                 <Cloud 
+                  time = {skyTime}
                   weather = {weather} 
                   key = {cloud.id}
                 />
@@ -132,9 +133,10 @@ function App() {
           temperature = {temp} 
           temperatureSystem = {temperatureSystem} 
           image = {weather.weather?.[0].icon}
+          time = {skyTime}
         />
 
-        <button className = 'card size button' onClick = {() => changeSystem()}>
+        <button className = {`card size button button-${skyTime}`} onClick = {() => changeSystem()}>
           Convert to {
             system === 'Unit Default' ? ' Metric ' :
             system === 'Metric' ? 'Imperial' : 

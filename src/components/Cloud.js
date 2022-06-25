@@ -1,10 +1,12 @@
 import '../styles/cloud.css';
-import littleCloud from '../assets/little-cloud.png'
-import midCloud from '../assets/cloud.png'
-import bigCloud from '../assets/big-cloud.png'
+
+import littleCloud1 from '../assets/little-cloud-1.png'
+import midCloud1 from '../assets/cloud-1.png'
+import bigCloud1 from '../assets/big-cloud-1.png'
+
 import transparentImage from '../assets/transparent.jpg'
 
-const Cloud = ({weather}) => {
+const Cloud = ({weather, time}) => {
 
     let cloud = weather.clouds?.all
 
@@ -17,11 +19,11 @@ const Cloud = ({weather}) => {
     const rollAPyramidDie = () =>  Math.floor(Math.random() * 3) + 1
     const numberCloud = rollAPyramidDie()
 
-    const myClouds = [littleCloud, midCloud, bigCloud]
+    const myClouds = [littleCloud1, midCloud1, bigCloud1]
 
     return (
         <div className = {
-            `cloud 
+            `cloud
             ${rollADie() === 1 ? 'opacity-0' : 'opacity-1'}
             ${
                 numberCloud === 1 ? 'animation-cloud-1' : 
@@ -32,7 +34,9 @@ const Cloud = ({weather}) => {
             <img 
                 src = {myClouds[numberCloud]?`${myClouds[numberCloud]}`:`${transparentImage}`} 
                 alt = ""
-                className={myClouds[numberCloud]?'':'opacity-0'}
+                className={
+                    myClouds[numberCloud]?`cloud-${time}`:'opacity-0'
+                }
              />
         </div>
     );

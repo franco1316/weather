@@ -1,9 +1,14 @@
 :root{
   --color-day-sky: #1a395c, #137fd8;
-  --color-day-cloud: rgb(242, 242, 242);
+  --color-night-sky: bottom, #030315, #060c3a;
 
-  --color-night-sky: #07101c, #1a395c;
-  --color-night-cloud: rgb(242, 242, 242);
+  --color-shadow-day: rgba(200, 200, 200, .75);
+  --color-shadow-night: rgba(50, 50, 50, .75);
+
+  --font-color-day: black;
+  --font-color-night: rgb(24, 145, 115);
+  --font-color-default-day: rgb(173, 21, 173);
+  --font-color-default-night: rgb(2, 11, 60);
 }
 
 *{
@@ -48,7 +53,6 @@
   height: 100vh;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(2rem, 5rem));
-  grid-template-rows: repeat(5, 1fr);
   overflow: hidden;
 }
 
@@ -63,14 +67,27 @@
   transition: transform .2s ease;
   filter: opacity(1);
   position: relative;
+  padding-bottom: 1rem;
   z-index: 7;
+}
+
+.button-night{
+  filter: brightness(0.6)
 }
 
 .button:hover{
   transform: scaleX(102%) scaleY(102%);
   transition: transform .2s ease;
   filter: blur(0.001px) opacity(.9);
-  color: purple;
+}
+
+.button-day:hover{
+  color: var(--font-color-default-day);
+}
+
+.button-night:hover{
+  color: var(--font-color-default-night);
+  filter: blur(0.001px) opacity(.9) brightness(0.8);
 }
 
 .button:active{

@@ -1,7 +1,3 @@
-*{
-    background-color: transparent;
-}
-
 .cloud{
     width: 300px;
     height: 200px;
@@ -84,11 +80,13 @@
     }
 }
 
-
-
 .cloud>img{
     width: inherit;
     height: inherit;
+}
+
+.cloud>.cloud-night{
+    filter: invert(0.6);
 }
 
 .opacity-0{
